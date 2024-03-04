@@ -1,6 +1,12 @@
 # Couch Potato QR Generator
 
-This is a QR code generator with color picker and download. 
+This is a QR code generator with color picker, sizing, and image download. 
+
+<div align="center">
+    <caf>
+       ![GitHub Image](/img/CPQR Screenshot 1.0.png)
+    </caf>
+</div>  
 
 ## Description
 
