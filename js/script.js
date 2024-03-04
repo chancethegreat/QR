@@ -1,5 +1,6 @@
 const form = document.getElementById('generate-form');
 const qr = document.getElementById('qrcode');
+const qrc = document.getElementsByName('qrcodecanvas');
 
 function onGenerateSubmit(e) {
     e.preventDefault();
@@ -17,14 +18,16 @@ function onGenerateSubmit(e) {
         console.log(url,size,color); */
 
         setTimeout(generateQRCode(url, size, color),2000);
-        setTimeout(function canvasImg(){
-            const img = qr.querySelector('img').src;
-            addLogo(img);
-        },50);
+
+   
+
         setTimeout(function linkURL() {
             const saveUrl = qr.querySelector('img').src;
             createSaveBtn(saveUrl);
         },50);
+        
+        addLogo();
+
     }   
 };
 
@@ -45,22 +48,14 @@ function generateQRCode(url, size, color) {
    setTimeout(showClear(),4000);
 };
 
-function addLogo(saveURL) {
+function addLogo() {
     const canvas = document.getElementById('qrcodecanvas');
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
+    const img = document.querySelector("img:not([class])");
+    console.log(document.querySelector("img:not([class])"));
+    ctx.drawImage(img, 10, 10);
 
-    const image = new Image();
-    image.onload = drawImageActualSize;
-
-    image.src = saveURL;
-
-    function drawImageActualSize() {
-        canvas.width = this.naturalWidth;
-        canvas.width = this.naturalHeight;
-    }
-
-    ctx.drawImage(this, 0,0);
-}
+};
     
 function createSaveBtn (saveURL) {
     const link = document.createElement('a');
