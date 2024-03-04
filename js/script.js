@@ -49,11 +49,11 @@ function generateQRCode(url, size, color) {
 };
 
 function addLogo() {
-    const canvas = document.getElementById('qrcodecanvas');
-    const ctx = canvas.getContext('2d');
+    const canvas = document.getElementById("qrcodecanvas");
+    const ctx = canvas.getContext("2d");
     const img = document.querySelector("img:not([class])");
     console.log(document.querySelector("img:not([class])"));
-    ctx.drawImage(img, 10, 10);
+    ctx.drawImage(img, 0, 0,  300, 300);
 
 };
     
