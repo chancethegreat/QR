@@ -7,12 +7,15 @@ function onGenerateSubmit(e) {
 
     const url = document.getElementById('url').value;
     const size =document.getElementById('size').value;
+    const color = document.getElementById('color').value;
 
     if (url === '') {
         alert('Please enter a URL');
     } else {
         
-        setTimeout(generateQRCode(url, size),10000);
+        console.log(url,size,color);
+
+        setTimeout(generateQRCode(url, size, color),10000);
 
         setTimeout(function saveURL() {
             const saveUrl = qr.querySelector('img').src;
@@ -29,11 +32,12 @@ function clearUI() {
 
 };
 
-function generateQRCode(url, size) {
+function generateQRCode(url, size, color) {
     var qrcode = new QRCode('qrcode', {
         text: url,
         width: size,
         height: size,
+        colorDark: color,
     });
    
 };
