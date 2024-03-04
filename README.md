@@ -4,7 +4,7 @@ This is a QR code generator with color picker, sizing, and image download.
 
 <div align="center">
     <caf>
-       ![GitHub Image](/img/CPQR Screenshot 1.0.png)
+       <img src="img/CPQR-Screenshot.png" width="600">
     </caf>
 </div>  
 
