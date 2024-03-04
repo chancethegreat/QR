@@ -13,11 +13,15 @@ function onGenerateSubmit(e) {
         alert('Please enter a URL');
     } else {
         
-        console.log(url,size,color);
+        /* Show form submission in console
+        console.log(url,size,color); */
 
-        setTimeout(generateQRCode(url, size, color),10000);
-
-        setTimeout(function saveURL() {
+        setTimeout(generateQRCode(url, size, color),2000);
+        setTimeout(function canvasImg(){
+            const img = qr.querySelector('img').src;
+            addLogo(img);
+        },50);
+        setTimeout(function linkURL() {
             const saveUrl = qr.querySelector('img').src;
             createSaveBtn(saveUrl);
         },50);
@@ -27,8 +31,7 @@ function onGenerateSubmit(e) {
 function clearUI() {
     document.getElementById('qrcode').innerHTML = "";
     const savelink = document.getElementById('save-link');
-    if (savelink)
-        savelink.remove();
+    if (savelink) savelink.remove();
 
 };
 
@@ -39,9 +42,25 @@ function generateQRCode(url, size, color) {
         height: size,
         colorDark: color,
     });
-   
+   setTimeout(showClear(),4000);
 };
 
+function addLogo(saveURL) {
+    const canvas = document.getElementById('qrcodecanvas');
+    const ctx = canvas.getContext("2d");
+
+    const image = new Image();
+    image.onload = drawImageActualSize;
+
+    image.src = saveURL;
+
+    function drawImageActualSize() {
+        canvas.width = this.naturalWidth;
+        canvas.width = this.naturalHeight;
+    }
+
+    ctx.drawImage(this, 0,0);
+}
     
 function createSaveBtn (saveURL) {
     const link = document.createElement('a');
@@ -53,4 +72,15 @@ function createSaveBtn (saveURL) {
     document.getElementById('generated').appendChild(link);
 };
 
+function hideClear() {
+    document.getElementById('clear').style.display = 'none';
+}
+
+function showClear() {
+    document.getElementById('clear').style.display = 'block';
+}
+
+hideClear();
+
 form.addEventListener('submit', onGenerateSubmit);
+form.addEventListener('clear',clearUI);
