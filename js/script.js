@@ -11,15 +11,14 @@ function onGenerateSubmit(e) {
     if (url === '') {
         alert('Please enter a URL');
     } else {
-        console.log(url, size);
-        generateQRCode(url, size);
+        
+        setTimeout(generateQRCode(url, size),10000);
 
         setTimeout(function saveURL() {
             const saveUrl = qr.querySelector('img').src;
             createSaveBtn(saveUrl);
         },50);
     }   
-
 };
 
 function clearUI() {
@@ -39,6 +38,7 @@ function generateQRCode(url, size) {
    
 };
 
+    
 function createSaveBtn (saveURL) {
     const link = document.createElement('a');
     link.id = "save-link";
