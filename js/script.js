@@ -49,7 +49,7 @@ function changeType(option) {
             document.getElementById('type').placeholder='Enter a text capable phone number';
             break;
         case "04":
-            document.getElementById('type').placeholder='Enter Coordinates. eg. 40.71872,-73.98905,100 ';
+            document.getElementById('type').placeholder='Enter Maps URL, eg. https://goo.gl/maps/yourlocation';
             break;
         case "05":
             document.getElementById('type').placeholder='Enter Network Name (SSID)';
@@ -72,7 +72,7 @@ function createUrl() {
             url = "sms:" + a;
             break;
         case "04":
-            url = "geo:" + a;
+            url = a;
             break;
         case "05":
             url = "WIFI:T:WPA;S:" + a + ";P:mypass;;";

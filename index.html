@@ -46,28 +46,40 @@
                         Couch Potato
                         QR Code Generator
                     </h1>
-                    <p class="mb-4">
-                        QR codes allow smartphone user to access your website simply and quickly.
+                    <p class="mb-4 text-xl">
+                        QR codes allow smartphone users to access your link simply and quickly. You can choose from a variety of links to create a QR code for including:
+                        <ul class="mb-4">
+                            <li class="text-l">URLs</li>
+                            <li class="text-l">Email Addresses</li>
+                            <li class="text-l">Send a Text Message</li>
+                            <li class="text-l">Map a location</li>
+                            <li class="text-l">Share WiFi credentials</li>
+                        </ul>
                     </p>
                     <p class="mb-4">
-                        Enter your URL below to generate a QR code and download the image. 
+                        Choose what type of link you are using then enter the link below to generate a QR code and download the image. 
                     </p>
                     <form id="generate-form" class="mt-4">
-                        <select id="linkType" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5" onchange="changeType()">
+                        <hr class="mb-5"></hr>
+                        <label for="linkType"> Type of link</label>
+                        <select id="linkType" name="linkType" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5" onchange="changeType()">
                             <option value="01" label="URL" selected>URL</option>
                             <option value="02" label="Email" >Email</option>
                             <option value="03" label="Text Message">Text Message</option>
                             <option value="04" label="Map">Map</option>
                             <option value="05" label="Wifi">Wifi</option>
                         </select>
-                        <input id="type" type="" placeholder="Enter a URL" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5">
-                        <select id="size" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5">
+                        <label for="type"> What you want to link</label>
+                        <input id="type" type="" name="type" placeholder="Enter a URL" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5" required>
+                        <label for="size">Size of QR code</label>
+                        <select id="size" name="size" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5">
                             <option value="100">100x100</option>
                             <option value="200">200x200</option>
                             <option value="300" selected>300x300</option>
                             <option value="500">500x500</option>
                             <option value="750">750x750</option>
                         </select>
+                        
                         <input id="color" type="color" name="color" class="w-1/6 rounded"> <label for="color">QR Code Color</label>
                         <button type="submit" class="bg-zinc-400 rounded w-full text-white py-3 px-4 mt-5 hover:bg-slate-800">
                             Generate QR Code
