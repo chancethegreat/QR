@@ -27,7 +27,7 @@
         <script src="js/script.js" defer></script>
         
     </head>
-    <body class="flex flex-col h-screen justify-between">
+    <body class="flex flex-col h-screen justify-between bg-slate-50">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -40,7 +40,7 @@
         </header>
 
         <main class="mb-auto">
-            <div class="flex flex-col-reverse align-center p-10 justify-center m-auto md:max-w-4xl md:flex-row">
+            <div class="flex flex-col-reverse align-center p-10 justify-center m-auto md:max-w-4xl md:flex-row bg-white border-2 border-zinc-200 ">
                 <div class="w-full md:w-2/3 mr-24 ">
                     <h1 class="text-3xl font-bold mb-5 md:text-4xl">
                         Couch Potato
@@ -69,8 +69,21 @@
                             <option value="04" label="Map">Map</option>
                             <option value="05" label="Wifi">Wifi</option>
                         </select>
-                        <label for="type"> What you want to link</label>
                         <input id="type" type="" name="type" placeholder="Enter a URL" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5" required>
+                        <label for="wifiauth" class="hidden">What type of WiFi password is used?</label>
+                        <select name="wifiauth" id="wifiauth" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5 hidden">
+                            <option value="WEP" name="WEP" selected>WEP</option>
+                            <option value="WPA" name="WPA">WPA</option>
+                            <option value="WPA2-EAP"name="WPA2-EAP">WPA2-EAP</option>
+                            <option value="nopass" name="nopass">No Password</option>
+                        </select>
+                        <label for="wifihidden" class="hidden">Is this Wifi network hidden?</label>
+                        <select name="wifihidden" id="wifihidden" class="w-full border-2 borer-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5 hidden">
+                            <option value="1">Yes</option>
+                            <option value="2" selected>No</option>
+                        </select>
+                        <label for="wifipsw" class="hidden">Wifi password:</label>
+                        <input id="wifipsw" type="text" placeholder="Enter Wifi password here" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5 hidden">
                         <label for="size">Size of QR code</label>
                         <select id="size" name="size" class="w-full border-2 border-gray-200 rounded p-3 text-gray-dark mr-2 focus:outline-none mb-5">
                             <option value="100">100x100</option>

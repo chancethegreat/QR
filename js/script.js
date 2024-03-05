@@ -21,8 +21,6 @@ function onGenerateSubmit(e) {
 
         setTimeout(generateQRCode(url, size, color),2000);
 
-   
-
         setTimeout(function linkURL() {
             const saveUrl = qr.querySelector('img').src;
             const type = document.getElementById('linkType').selectedOptions[0].textContent;
@@ -41,29 +39,53 @@ function changeType(option) {
     switch (option) {
         case "01":
             document.getElementById('type').placeholder='Enter a URL';
+            removeWifiFields();
             break;
         case "02":
             document.getElementById('type').placeholder='Enter an Email Address';
+            removeWifiFields();
             break;
         case "03":
             document.getElementById('type').placeholder='Enter a text capable phone number';
+            removeWifiFields();
             break;
         case "04":
             document.getElementById('type').placeholder='Enter Maps URL, eg. https://goo.gl/maps/yourlocation';
+            removeWifiFields();
             break;
         case "05":
             document.getElementById('type').placeholder='Enter Network Name (SSID)';
+            addWifiFields();
             break;
         default:
             document.getElementById('type').placholder='Enter a URL';
+            removeWifiFields();
     }
+
 }
 
+function addWifiFields() {
+    document.getElementById('wifiauth').classList.remove('hidden');
+    document.getElementById('wifihidden').classList.remove('hidden');
+    document.getElementById('wifipsw').classList.remove('hidden');
+};
+
+function removeWifiFields() {
+    document.getElementById('wifiauth').classList.add('hidden');
+    document.getElementById('wifihidden').classList.add('hidden');
+    document.getElementById('wifipsw').classList.add('hidden');
+};
+
 function createUrl() {
+    /*Create link used to make QR code.*/
     var a = document.getElementById('type').value;
+    var wifiauth = document.getElementById('wifiauth').value;
+    var wifipsw = document.getElementById('wifipsw').value;
     var option = document.getElementById('linkType').value;
+
     var url = "";
 
+    /*corresponds to the select box on form and format needed for each link*/
     switch (option) {
         case "02":
             url = "mailto:" + a;
@@ -75,12 +97,11 @@ function createUrl() {
             url = a;
             break;
         case "05":
-            url = "WIFI:T:WPA;S:" + a + ";P:mypass;;";
+            url = "WIFI:T:" + wifiauth + ";S:\"" + a + "\";P:" + wifipsw + ";;";
             break;
         default:
             url = a;
     }
-    console.log(url);
     return url;
 }
 
