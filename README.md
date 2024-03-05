@@ -10,7 +10,7 @@ This is a QR code generator with color picker, sizing, and image download.
 
 ## Description
 
-Longer description explaining the rationale/intent behind the project, what it's good for, and how it works. If the next two subsections are short enough, they can be merged up into this block—perhaps as bulleted lists.
+Full Description coming soon!!!
 
 ### Features
 
