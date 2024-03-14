@@ -12,6 +12,8 @@ function onGenerateSubmit(e) {
     const size =document.getElementById('size').value;
     const color = document.getElementById('color').value;
 
+    
+
     if (url === '') {
         alert('Please enter a URL');
     } else {
