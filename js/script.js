@@ -5,6 +5,7 @@ const qrc = document.getElementsByName('qrcodecanvas');
 
 
 function onGenerateSubmit(e) {
+    console.log("Submit Triggered");
     e.preventDefault();
     clearUI();
 
